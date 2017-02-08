@@ -1,1 +1,1 @@
-/*! Pow | v1.0.0 | @kaloja */
+/*! Pow | v1.0.0 | @kaloja */.pow-layout{display:-ms-flexbox;display:flex;-ms-flex-flow:row wrap;flex-flow:row wrap;margin:-8px}.pow-layout>*{-ms-flex:1 0 300px;flex:1 0 300px;max-width:calc(100% - 16px);margin:8px}.pow-layout--flush,.pow-layout--flush>*{max-width:100%;margin:0}.pow-layout--flex-children>*{display:-ms-flexbox;display:flex}
