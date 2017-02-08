@@ -1,0 +1,14 @@
+{
+	"name": "pow",
+	"version": "1.0.0",
+	"title": "Pow",
+	"author": "@kaloja",
+	"devDependencies": {
+		"gulp": "^3.9.0",
+		"gulp-header": "^1.7.1",
+		"gulp-postcss": "*",
+		"gulp-rename": "^1.0.3",
+		"gulp-sass": "^2.1.0",
+		"autoprefixer": "^6.3.2"
+	}
+}

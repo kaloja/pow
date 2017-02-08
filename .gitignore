@@ -1,0 +1,12 @@
+# System files
+# --------------------
+.DS_Store
+.sass-cache
+
+# Build files
+# --------------------
+/node_modules
+
+# Test files
+# --------------------
+/test
