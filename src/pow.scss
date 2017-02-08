@@ -1,0 +1,232 @@
+// --------------------------------------------------------
+// POW - Power the layout backbone
+// --------------------------------------------------------
+
+// Output configuration:
+//
+// Which parts of POW should be used?
+//
+// @type boolean
+//
+$pow-output--namespace: true !default;
+$pow-output--layout-core: true !default;
+$pow-output--layout-align: false !default;
+$pow-output--layout-justify: false !default;
+
+// Namespace:
+//
+// By default all POW components are namespaced with `pow`,
+// this allows us to share components without the chance of
+// there being any conflicts.
+//
+// @type string
+//
+$pow-namespace: 'pow' !default;
+
+// Name:
+//
+// By default all POW components are named with `layout`.
+// Use whatever name suits you best.
+//
+// @type string
+//
+$pow-name: 'layout' !default;
+
+// Column base size:
+//
+// The base size is the foundation of the system. This
+// defines the default size of an element before the
+// remaining space is distributed. You can use any type of
+// unit, but for best perfomance use pixels or percentage.
+// With the pixels are the system very flexible and with
+// percentage are the system more rigid.
+//
+// @type number (px|%|em|rem)
+//
+$pow-size: 300px !default;
+
+// Column grow:
+//
+// This defines the ability for a flex item to grow if
+// necessary. It accepts a unitless value that serves as a
+// proportion. It dictates what amount of the available
+// space inside the flex container the item should take up.
+// If all items have flex-grow set to 1, the remaining space
+// in the container will be distributed equally to all
+// children.
+//
+// @type number (0|1|2)
+//
+$pow-grow: 1 !default;
+
+// Margin around columns:
+//
+// Define how much space it should be around the columns.
+// The margin can use any type of unit, but for best
+// perfomance use pixels.
+//
+// @type number (px|%|em|rem)
+//
+$pow-margin: 8px !default;
+
+// --------------------------------------------------------
+// Core layout
+// --------------------------------------------------------
+
+@if $pow-output--layout-core == true {
+
+	@if $pow-output--namespace == true {
+
+		.#{$pow-namespace}-#{$pow-name} {
+			display: flex;
+			flex-flow: row wrap;
+			margin: -$pow-margin;
+		}
+
+		.#{$pow-namespace}-#{$pow-name} > * {
+			flex: $pow-grow 0 $pow-size;
+			max-width: calc(100% - #{$pow-margin * 2});
+			margin: $pow-margin;
+		}
+
+		// Remove the margin from the columns:
+		.#{$pow-namespace}-#{$pow-name}--flush,
+		.#{$pow-namespace}-#{$pow-name}--flush > * {
+			max-width: 100%;
+			margin: 0;
+		}
+
+		// Stretch the layouts children:
+		.#{$pow-namespace}-#{$pow-name}--flex-children > * {
+			display: flex;
+		}
+
+	} @else if $pow-output--namespace == false {
+
+		.#{$pow-name} {
+			display: flex;
+			flex-flow: row wrap;
+			margin: -$pow-margin;
+		}
+
+		.#{$pow-name} > * {
+			flex: $pow-grow 0 $pow-size;
+			max-width: calc(100% - #{$pow-margin * 2});
+			margin: $pow-margin;
+		}
+
+		// Remove the margin from the columns:
+		.#{$pow-name}--flush,
+		.#{$pow-name}--flush > * {
+			max-width: 100%;
+			margin: 0;
+		}
+
+		// Stretch the layouts children:
+		.#{$pow-name}--flex-children > * {
+			display: flex;
+		}
+
+	}
+
+}
+
+// --------------------------------------------------------
+// Align layout
+// --------------------------------------------------------
+
+@if $pow-output--layout-align == true {
+
+	@if $pow-output--namespace == true {
+
+		.#{$pow-namespace}-#{$pow-name}--align-start {
+			align-items: flex-start;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--align-end {
+			align-items: flex-end;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--align-center {
+			align-items: center;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--align-base {
+			align-items: baseline;
+		}
+
+	} @else if $pow-output--namespace == false {
+
+		.#{$pow-name}--align-start {
+			align-items: flex-start;
+		}
+
+		.#{$pow-name}--align-end {
+			align-items: flex-end;
+		}
+
+		.#{$pow-name}--align-center {
+			align-items: center;
+		}
+
+		.#{$pow-name}--align-base {
+			align-items: baseline;
+		}
+
+	}
+
+}
+
+// --------------------------------------------------------
+// Justify layout
+// --------------------------------------------------------
+
+@if $pow-output--layout-justify == true {
+
+	@if $pow-output--namespace == true {
+
+		.#{$pow-namespace}-#{$pow-name}--justify-start {
+			justify-content: flex-start;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--justify-end {
+			justify-content: flex-end;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--justify-center {
+			justify-content: center;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--justify-between {
+			justify-content: space-between;
+		}
+
+		.#{$pow-namespace}-#{$pow-name}--justify-around {
+			justify-content: space-around;
+		}
+
+	} @else if $pow-output--namespace == false {
+
+		.#{$pow-name}--justify-start {
+			justify-content: flex-start;
+		}
+
+		.#{$pow-name}--justify-end {
+			justify-content: flex-end;
+		}
+
+		.#{$pow-name}--justify-center {
+			justify-content: center;
+		}
+
+		.#{$pow-name}--justify-between {
+			justify-content: space-between;
+		}
+
+		.#{$pow-name}--justify-around {
+			justify-content: space-around;
+		}
+
+	}
+
+}
