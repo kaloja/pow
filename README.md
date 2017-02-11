@@ -11,7 +11,7 @@ But the recommendation is to customize Pow for your own needs through Sass, by a
 
 ### Customize the settings
 
-```css
+```scss
 /* Pow column base size: */
 $pow-size: 400px;
 
