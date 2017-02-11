@@ -12,10 +12,10 @@ But the recommendation is to customize Pow for your own needs through Sass, by a
 ### Customize the settings
 
 ```scss
-/* Pow column base size: */
+// Pow column base size:
 $pow-size: 400px;
 
-/* Pow margin around columns: */
+// Pow margin around columns:
 $pow-margin: 10px;
 ```
 
