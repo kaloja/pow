@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<title></title>
+
+	<!-- Download the hero image nice and early: -->
+	<link rel="preload" href="/assets/images/hero-sm.jpg" as="image" media="(max-width: 599px)">
+	<link rel="preload" href="/assets/images/hero-md.jpg" as="image" media="(min-width: 600px) and (max-width: 999px)">
+	<link rel="preload" href="/assets/images/hero-lg.jpg" as="image" media="(min-width: 1000px)">
+
+	<!-- Preconnect external assets: -->
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//fonts.googleapis.com">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="assets/css/app.min.css">
+
+	<!-- Meta -->
+	<link rel="shortcut icon" href="/icon.png">
+	<link rel="apple-touch-icon-precomposed" href="/icon.png">
+	<meta name="apple-mobile-web-app-title" content="Pow">
+	<meta name="description" content="Pow">
+	<link rel="manifest" href="/manifest.json">
+
+</head>
+<body>
+	<h1>Hello World!</h1>
+</body>
+</html>
