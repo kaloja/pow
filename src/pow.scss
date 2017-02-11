@@ -12,6 +12,7 @@ $pow-output--namespace: true !default;
 $pow-output--layout-core: true !default;
 $pow-output--layout-align: false !default;
 $pow-output--layout-justify: false !default;
+$pow-output--layout-size: false !default;
 
 // Namespace:
 //
@@ -31,6 +32,14 @@ $pow-namespace: 'pow' !default;
 // @type string
 //
 $pow-name: 'layout' !default;
+
+// Class name:
+//
+// The class name is defined dependent of the namespace.
+//
+// @type null
+//
+$pow-classname: null !default;
 
 // Margin around columns:
 //
@@ -79,60 +88,40 @@ $pow-grow: 1 !default;
 // Core layout
 // --------------------------------------------------------
 
+@if $pow-output--namespace == true {
+
+	$pow-classname: #{$pow-namespace}-#{$pow-name};
+
+} @else if $pow-output--namespace == false {
+
+	$pow-classname: #{$pow-name};
+
+}
+
 @if $pow-output--layout-core == true {
 
-	@if $pow-output--namespace == true {
+	.#{$pow-classname} {
+		display: flex;
+		flex-flow: row wrap;
+		margin: -$pow-margin;
+	}
 
-		.#{$pow-namespace}-#{$pow-name} {
-			display: flex;
-			flex-flow: row wrap;
-			margin: -$pow-margin;
-		}
+	.#{$pow-classname} > * {
+		flex: $pow-grow 0 $pow-basis;
+		max-width: calc(100% - #{$pow-margin * 2});
+		margin: $pow-margin;
+	}
 
-		.#{$pow-namespace}-#{$pow-name} > * {
-			flex: $pow-grow 0 $pow-basis;
-			max-width: calc(100% - #{$pow-margin * 2});
-			margin: $pow-margin;
-		}
+	// Remove the margin from the columns:
+	.#{$pow-classname}--flush,
+	.#{$pow-classname}--flush > * {
+		max-width: 100%;
+		margin: 0;
+	}
 
-		// Remove the margin from the columns:
-		.#{$pow-namespace}-#{$pow-name}--flush,
-		.#{$pow-namespace}-#{$pow-name}--flush > * {
-			max-width: 100%;
-			margin: 0;
-		}
-
-		// Stretch the layouts children:
-		.#{$pow-namespace}-#{$pow-name}--flex-children > * {
-			display: flex;
-		}
-
-	} @else if $pow-output--namespace == false {
-
-		.#{$pow-name} {
-			display: flex;
-			flex-flow: row wrap;
-			margin: -$pow-margin;
-		}
-
-		.#{$pow-name} > * {
-			flex: $pow-grow 0 $pow-basis;
-			max-width: calc(100% - #{$pow-margin * 2});
-			margin: $pow-margin;
-		}
-
-		// Remove the margin from the columns:
-		.#{$pow-name}--flush,
-		.#{$pow-name}--flush > * {
-			max-width: 100%;
-			margin: 0;
-		}
-
-		// Stretch the layouts children:
-		.#{$pow-name}--flex-children > * {
-			display: flex;
-		}
-
+	// Stretch the layouts children:
+	.#{$pow-classname}--flex-children > * {
+		display: flex;
 	}
 
 }
@@ -143,42 +132,20 @@ $pow-grow: 1 !default;
 
 @if $pow-output--layout-align == true {
 
-	@if $pow-output--namespace == true {
+	.#{$pow-classname}--align-start {
+		align-items: flex-start;
+	}
 
-		.#{$pow-namespace}-#{$pow-name}--align-start {
-			align-items: flex-start;
-		}
+	.#{$pow-classname}--align-end {
+		align-items: flex-end;
+	}
 
-		.#{$pow-namespace}-#{$pow-name}--align-end {
-			align-items: flex-end;
-		}
+	.#{$pow-classname}--align-center {
+		align-items: center;
+	}
 
-		.#{$pow-namespace}-#{$pow-name}--align-center {
-			align-items: center;
-		}
-
-		.#{$pow-namespace}-#{$pow-name}--align-base {
-			align-items: baseline;
-		}
-
-	} @else if $pow-output--namespace == false {
-
-		.#{$pow-name}--align-start {
-			align-items: flex-start;
-		}
-
-		.#{$pow-name}--align-end {
-			align-items: flex-end;
-		}
-
-		.#{$pow-name}--align-center {
-			align-items: center;
-		}
-
-		.#{$pow-name}--align-base {
-			align-items: baseline;
-		}
-
+	.#{$pow-classname}--align-base {
+		align-items: baseline;
 	}
 
 }
@@ -189,50 +156,85 @@ $pow-grow: 1 !default;
 
 @if $pow-output--layout-justify == true {
 
-	@if $pow-output--namespace == true {
+	.#{$pow-classname}--justify-start {
+		justify-content: flex-start;
+	}
 
-		.#{$pow-namespace}-#{$pow-name}--justify-start {
-			justify-content: flex-start;
+	.#{$pow-classname}--justify-end {
+		justify-content: flex-end;
+	}
+
+	.#{$pow-classname}--justify-center {
+		justify-content: center;
+	}
+
+	.#{$pow-classname}--justify-between {
+		justify-content: space-between;
+	}
+
+	.#{$pow-classname}--justify-around {
+		justify-content: space-around;
+	}
+
+}
+
+// --------------------------------------------------------
+// Size layout
+// --------------------------------------------------------
+
+// Breakpoints:
+$pow-breakpoints: (
+	sm: 600px,
+	md: 1000px,
+	lg: 1400px
+) !default;
+
+// Base columns:
+$pow-base-columns: 12 !default;
+
+// Selected column sizes:
+$pow-columns: (
+	3,
+	4,
+	6,
+	12
+) !default;
+
+@if $pow-output--namespace == true {
+
+	$pow-classname: #{$pow-namespace}-size;
+
+} @else if $pow-output--namespace == false {
+
+	$pow-classname: size;
+
+}
+
+@mixin output-size($pow-columns, $pow-base-columns, $pow-breakpoint: null) {
+
+	@each $column in $pow-columns {
+		// Set size value:
+		$size: ($column / $pow-base-columns) * 100;
+		// Create class name:
+		$classname: #{$pow-classname}-#{&}#{round($size)}#{$pow-breakpoint};
+		// Create class:
+		.#{$classname} {
+			flex-basis: calc(#{$size}% - #{$pow-margin * 2}) !important;
 		}
+	}
+}
 
-		.#{$pow-namespace}-#{$pow-name}--justify-end {
-			justify-content: flex-end;
+@if $pow-output--layout-size == true  {
+
+	// Create selected columns:
+	@include output-size($pow-columns, $pow-base-columns);
+
+	// Create the responsive classes:
+	@each $key, $value in $pow-breakpoints {
+		// Create each breakpoint:
+		@media (min-width: #{$value}) {
+			@include output-size($pow-columns, $pow-base-columns, #{\@}#{$key});
 		}
-
-		.#{$pow-namespace}-#{$pow-name}--justify-center {
-			justify-content: center;
-		}
-
-		.#{$pow-namespace}-#{$pow-name}--justify-between {
-			justify-content: space-between;
-		}
-
-		.#{$pow-namespace}-#{$pow-name}--justify-around {
-			justify-content: space-around;
-		}
-
-	} @else if $pow-output--namespace == false {
-
-		.#{$pow-name}--justify-start {
-			justify-content: flex-start;
-		}
-
-		.#{$pow-name}--justify-end {
-			justify-content: flex-end;
-		}
-
-		.#{$pow-name}--justify-center {
-			justify-content: center;
-		}
-
-		.#{$pow-name}--justify-between {
-			justify-content: space-between;
-		}
-
-		.#{$pow-name}--justify-around {
-			justify-content: space-around;
-		}
-
 	}
 
 }
