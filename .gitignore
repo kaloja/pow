@@ -7,6 +7,10 @@
 # --------------------
 /node_modules
 
+# Dist files
+# --------------------
+/dist/pow.css
+
 # Test files
 # --------------------
 /test
