@@ -225,7 +225,7 @@ $pow-columns: (
 
 @if $pow-output--layout-size == true  {
 
-	// Create selected columns:
+	// Create selected sizes:
 	@include output-size($pow-columns, $pow-base-columns);
 
 	// Create the responsive classes:
