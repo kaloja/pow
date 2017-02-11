@@ -211,7 +211,6 @@ $pow-columns: (
 }
 
 @mixin output-size($pow-columns, $pow-base-columns, $pow-breakpoint: null) {
-
 	@each $column in $pow-columns {
 		// Set size value:
 		$size: ($column / $pow-base-columns) * 100;
