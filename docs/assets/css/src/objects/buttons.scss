@@ -1,3 +1,41 @@
-.button {}
+.o-button {
+	display: block;
+	vertical-align: middle;
+	margin-bottom: 12px;
+	padding: 12px 16px;
+	color: #fff;
+	font-size: 12px;
+	font-family: sans-serif;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 1px;
+	border: 1px solid $color-primary;
+	border-radius: 4px;
+	background-color: $color-primary;
+	cursor: pointer;
 
-.button--secondary {}
+	@media (min-width: $sm) {
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	@media (min-width: $md) {
+		padding: 24px 32px;
+	}
+}
+
+.o-button + .o-button {
+	margin-bottom: 0;
+
+	@media (min-width: $sm) {
+		// With display inline-block we have 4px from start:
+		margin-left: 20px;
+	}
+}
+
+.o-button--secondary {
+	color: $color-primary;
+	background-color: #fff;
+}
