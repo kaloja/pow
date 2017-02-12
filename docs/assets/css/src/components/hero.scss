@@ -1,31 +1,54 @@
 .c-hero {
-	min-height: 300px;
+	position: relative;
+	height: 400px;
 	margin-bottom: 0;
-	padding-top: 56.25%;
 	background-color: #2e2620;
 	background-image: url(../../images/hero-sm.jpg);
 	background-position: center center;
 	background-size: cover;
 
 	@media (min-width: $sm) {
+		height: 600px;
 		background-image: url(../../images/hero-md.jpg);
 	}
 
 	@media (min-width: $md) {
+		height: 800px;
 		background-image: url(../../images/hero-lg.jpg);
 	}
 
-	@media (min-width: 1200px) {
-		height: 80vh;
-		padding-top: 0;
+	@media (min-width: $lg) {
+		height: 90vh;
 	}
 }
 
-.c-hero--overlay {}
+.c-hero--overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #2e2620;
+	opacity: 0.1;
+}
 
-.c-hero__content {}
+.c-hero__content {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+}
 
 .c-hero__title {
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: 16px;
+	font-weight: 700;
+	color: #fff;
+
+	@media (min-width: $sm) {
+		font-size: 24px;
+	}
+
+	@media (min-width: $lg) {
+		// font-size: 32px;
+	}
 }
