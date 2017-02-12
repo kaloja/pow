@@ -34,3 +34,11 @@ $z-layers: (
 	}
 	@return map-get($z-layers, $layer);
 }
+
+// --------------------------------------------------------
+// REM font size
+// --------------------------------------------------------
+@mixin font-size($size-value: 16) {
+  font-size: $size-value + px;
+  font-size: ($size-value * 0.0625) + rem;
+}
