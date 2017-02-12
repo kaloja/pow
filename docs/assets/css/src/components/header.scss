@@ -1,22 +1,42 @@
 .c-header {
 	padding-top: 24px;
 	padding-bottom: 24px;
+	text-align: center;
+
+	@media (min-width: $sm) {
+		padding-top: 32px;
+		padding-bottom: 32px;
+	}
+
+	@media (min-width: $md) {
+		padding-top: 48px;
+		padding-bottom: 48px;
+	}
+
+	@media (min-width: $lg) {
+		padding-top: 64px;
+		padding-bottom: 64px;
+	}
 }
 
 .c-header__title {
 	margin-top: 0;
-	margin-bottom: 0;
-	@include font-size(24);
+	margin-bottom: 24px;
+	font-size: 24px;
+	font-weight: 300;
 
 	@media (min-width: $sm) {
-		@include font-size(36);
+		margin-bottom: 32px;
+		font-size: 32px;
 	}
 
 	@media (min-width: $md) {
-		@include font-size(48);
+		margin-bottom: 48px;
+		font-size: 48px;
 	}
 
 	@media (min-width: $lg) {
-		@include font-size(72);
+		margin-bottom: 64px;
+		font-size: 64px;
 	}
 }
