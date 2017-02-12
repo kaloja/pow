@@ -21,4 +21,4 @@ $pow-margin: 10px;
 
 ## What about the name?
 
-Pow is powerful like an avalanche rampage in the mountains. Pow is nice to work with, just like skiing in new fresh powder snow. Thus, Pow is like a Pow-Pow day!
+Pow is powerful like an avalanche rampage in the mountains and it is nice to work with, just like skiing in fresh powder snow. Pow is like a pow pow day.
