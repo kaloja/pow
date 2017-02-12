@@ -14,11 +14,18 @@
 	@media (min-width: $md) {
 		background-image: url(../../images/hero-lg.jpg);
 	}
+
+	@media (min-width: 1200px) {
+		height: 80vh;
+		padding-top: 0;
+	}
 }
 
 .c-hero--overlay {}
 
 .c-hero__content {}
 
-.c-hero__title {}
-
+.c-hero__title {
+	margin-top: 0;
+	margin-bottom: 0;
+}
