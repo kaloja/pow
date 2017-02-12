@@ -1,0 +1,24 @@
+.c-hero {
+	min-height: 300px;
+	margin-bottom: 0;
+	padding-top: 56.25%;
+	background-color: #2e2620;
+	background-image: url(../../images/hero-sm.jpg);
+	background-position: center center;
+	background-size: cover;
+
+	@media (min-width: $sm) {
+		background-image: url(../../images/hero-md.jpg);
+	}
+
+	@media (min-width: $md) {
+		background-image: url(../../images/hero-lg.jpg);
+	}
+}
+
+.c-hero--overlay {}
+
+.c-hero__content {}
+
+.c-hero__title {}
+
