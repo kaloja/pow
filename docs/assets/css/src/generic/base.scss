@@ -1,0 +1,11 @@
+// Background selection color:
+::selection {
+	background-color: $color-primary;
+	color: #fff;
+}
+
+// Responsive images:
+img {
+	max-width: 100%;
+	height: auto;
+}

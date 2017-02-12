@@ -1,0 +1,36 @@
+// --------------------------------------------------------
+// Screen breakpoints
+// --------------------------------------------------------
+
+$sm: 600px;
+$md: 1000px;
+$lg: 1400px;
+
+// --------------------------------------------------------
+// Colors
+// --------------------------------------------------------
+
+$color-primary: #135e77;
+$color-light: #e8effa;
+$color-dark: #022e3f;
+$color-black: #292e39;
+
+// --------------------------------------------------------
+// Z-index systems
+// --------------------------------------------------------
+
+$z-layers: (
+	"max": 5,
+	"high": 4,
+	"medium": 3,
+	"low": 2,
+	"base": 1,
+	"below": -1
+);
+
+@function z($layer) {
+	@if not map-has-key($z-layers, $layer) {
+		@warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+	}
+	@return map-get($z-layers, $layer);
+}

@@ -1,0 +1,9 @@
+.wrapper {
+	width: 90%;
+	max-width: $md;
+	margin: 0 auto;
+}
+
+.wrapper--wide {
+	max-width: $lg;
+}
