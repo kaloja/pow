@@ -1,42 +1,42 @@
 .c-header {
-	padding-top: 24px;
-	padding-bottom: 24px;
+	padding-top: 48px;
+	padding-bottom: 48px;
 	text-align: center;
 
 	@media (min-width: $sm) {
-		padding-top: 32px;
-		padding-bottom: 32px;
+		padding-top: 64px;
+		padding-bottom: 64px;
 	}
 
 	@media (min-width: $md) {
-		padding-top: 48px;
-		padding-bottom: 48px;
+		padding-top: 96px;
+		padding-bottom: 96px;
 	}
 
 	@media (min-width: $lg) {
-		padding-top: 64px;
-		padding-bottom: 64px;
+		padding-top: 128px;
+		padding-bottom: 128px;
 	}
 }
 
 .c-header__title {
 	margin-top: 0;
-	margin-bottom: 24px;
+	margin-bottom: 32px;
 	font-size: 24px;
 	font-weight: 300;
 
 	@media (min-width: $sm) {
-		margin-bottom: 32px;
+		margin-bottom: 48px;
 		font-size: 32px;
 	}
 
 	@media (min-width: $md) {
-		margin-bottom: 48px;
+		margin-bottom: 64px;
 		font-size: 48px;
 	}
 
 	@media (min-width: $lg) {
-		margin-bottom: 64px;
+		margin-bottom: 96px;
 		font-size: 64px;
 	}
 }
